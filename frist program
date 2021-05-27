@@ -1,0 +1,93 @@
+
+// this to import the IOException
+import java.io.IOException;
+
+//To create the object must be written
+import java.util.Scanner;
+
+
+    interface mark3 {
+
+       void totalmark() ;
+
+       void performancemark() ;
+
+       void displaymothode();
+    }
+    class test implements mark{
+              //I used int to identify a ID
+               int yourID ;
+               //I used int to identify a Attendance
+               int Attendance;
+
+       String nameofstudent;
+
+       int Studmark[]=new int[15];
+       int i;
+       float overall=0, average;
+
+       // asking the user to enter the keyboard
+       Scanner s = new Scanner(System.in);
+
+       test() throws IOException{
+
+             System.out.println("yourID :");
+
+             this.yourID = s.nextInt();
+
+             // reading the input from the keyboard
+             System.out.println("name of student :");
+
+
+             this.nameofstudent = s.next();
+
+       }
+       public void totalmark(){
+        for(int i=0; i<15; i++)
+        {
+        	// loop to take a 15 week records , 4 hours for each week
+
+        System.out.println("enter the mark"+(i+1)+" ");
+        Studmark[i] = s.nextInt();
+        overall =overall + Studmark[i];
+       }
+
+       s.close();
+       }
+       public void performancemark () {
+       average= overall/(15*4)*100 ;
+       System.out.print("the grade of student is: ");
+
+                       if (this.average >=49 && this.average <=50){
+
+                    System.out.print("PASS");
+             }
+            // Enter the status of the successful student.
+
+             else {
+
+                    System.out.print("FAIL");
+           //Enter the status of the failed student.
+             }}
+                  public void displaymothode(){
+
+               System.out.println("Student ID : "+ this.yourID);
+            //Enter the student ID
+             System.out.println("Student Name : " + this.nameofstudent);
+            //Enter the student name
+             System.out.println("Overall Mark : " + this. Attendance);
+            //Enter the overall mark, Show absence percentage
+System.out.println("precntage : %" + this.average );
+    }         // calculate the percent
+
+           public static void main(String[] args) throws IOException {
+                         // to take input from the keyboard
+
+             mark m = new test();
+
+             m.totalmark();
+
+             m.performancemark();
+
+             m.displaymothode();
+           }}
